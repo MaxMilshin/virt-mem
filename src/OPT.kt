@@ -15,7 +15,7 @@ fun optReplacementPosition(arr: MutableList<MutableList<Int>>, numOfCycleStep: I
 
 fun oneExecutionOPT(memory: IntArray, arr: MutableList<MutableList<Int>>, currentPage: Int, numOfCycleStep: Int, m : Int, n : Int) : String {
     if (currentPage in memory)
-        return "This page already in virtual memory"
+        return message
     var pos = searchFirstPositionWhichMoreThanElem(memory, n - 1, 0)
     if (pos >= memory.size)
         pos = optReplacementPosition(arr, numOfCycleStep, m)

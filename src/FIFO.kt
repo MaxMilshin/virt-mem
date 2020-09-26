@@ -3,7 +3,7 @@ import java.util.LinkedList
 
 fun oneExecutionFIFO(queueOfPages: Queue<Int>, memory: IntArray, currentPage: Int, n : Int) : String {
     if (currentPage in memory)
-        return "This page already in virtual memory"
+        return message
     var pos = searchFirstPositionWhichMoreThanElem(memory, n - 1, 0)
     if (pos >= memory.size) {
         pos = queueOfPages.peek()
