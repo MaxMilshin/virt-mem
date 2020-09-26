@@ -15,8 +15,7 @@ fun main(args: Array<String>) {
     val res = input(args[0], pages)
     val n = res.first
     val m = res.second
-    var memory = IntArray(m) {-1}
-    println(fifo(pages, memory))
-    memory = IntArray(m) {-1}
-    println(lru(pages, memory, n, m))
+    println(fifo(pages, IntArray(m) {n}, n))
+    println(lru(pages, IntArray(m) {n}, n, m))
+    println(opt(pages, IntArray(m) {n}, m, n))
 }
