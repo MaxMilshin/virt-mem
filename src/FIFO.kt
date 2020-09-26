@@ -1,22 +1,23 @@
 import java.util.Queue
 import java.util.LinkedList
 
-fun FIFO(pages: MutableList<Int>, memory: IntArray): MutableList<String> {
+fun oneExecutionFIFO(queueOfPages: Queue<Int>, memory: IntArray, currentPage: Int) : String {
+    if (currentPage in memory)
+        return "This page already in virtual memory"
+    var pos = searchFirstEmptyPosition(memory)
+    if (pos >= memory.size) {
+        pos = queueOfPages.peek()
+        queueOfPages.poll()
+    }
+    queueOfPages.add(pos)
+    memory[pos] = currentPage
+    return pos.toString()
+}
+
+fun fifo(pages: MutableList<Int>, memory: IntArray): MutableList<String> {
     var answer = mutableListOf<String>()
     var queueOfPages: Queue<Int> = LinkedList<Int>()
-    for (i in 0 until pages.size) {
-        if (pages[i] in memory)
-            answer.add("This page already in virtual memory")
-        else {
-            var pos = searchFirstEmptyPosition(memory)
-            if (pos >= memory.size) {
-                pos = queueOfPages.peek()
-                queueOfPages.poll()
-            }
-            queueOfPages.add(pos)
-            memory[pos] = pages[i]
-            answer.add(pos.toString())
-        }
-    }
+    for (i in 0 until pages.size)
+        answer.add(oneExecutionFIFO(queueOfPages, memory, pages[i]))
     return answer
 }

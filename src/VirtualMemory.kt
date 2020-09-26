@@ -6,7 +6,7 @@ fun input(fileName: String, pages: MutableList<Int>) : Pair<Int, Int> {
     val m = lines[1].toInt()
     var sequenceOfPages = lines[2].split(" ").toTypedArray()
     for (elem in sequenceOfPages)
-        pages.add(elem.toInt())
+        pages.add(elem.toInt() - 1)
     return Pair(n, m)
 }
 
@@ -16,5 +16,7 @@ fun main(args: Array<String>) {
     val n = res.first
     val m = res.second
     var memory = IntArray(m) {-1}
-    println(FIFO(pages, memory))
+    println(fifo(pages, memory))
+    memory = IntArray(m) {-1}
+    println(lru(pages, memory, n, m))
 }
