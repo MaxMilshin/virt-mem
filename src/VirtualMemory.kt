@@ -2,7 +2,7 @@ import java.io.File
 
 const val message = "This page is already in virtual memory"
 
-fun how2ndAns(arr: MutableList<String>) : Int {
+fun how2ndAns(arr: MutableList<String>) : Int { // возращает количество ответов второго типа
     var countOfSecondTypeAnswers = 0
     for (elem in arr)
         if (elem != message)
@@ -10,7 +10,7 @@ fun how2ndAns(arr: MutableList<String>) : Int {
     return countOfSecondTypeAnswers
 }
 
-fun printlnOfList(arr: MutableList<String>) {
+fun printlnOfList(arr: MutableList<String>) { // выводит содержимое списка
     for (elem in arr)
         println(elem)
     println()
@@ -39,9 +39,9 @@ fun output(fifoAns: MutableList<String>, lruAns: MutableList<String>, optAns: Mu
 }
 
 fun main(args: Array<String>) {
-    val pages = mutableListOf<Int>()
+    val pages = mutableListOf<Int>() // последовательность обращений к страницам процесса
     val res = input(args[0], pages)
-    val n = res.first
-    val m = res.second
+    val n = res.first // размер адрессного пространства процесса
+    val m = res.second // количество кадров в оперативной памяти
     output(fifo(pages, IntArray(m) {n}, n), lru(pages, IntArray(m) {n}, n, m), opt(pages, IntArray(m) {n}, m, n))
 }
