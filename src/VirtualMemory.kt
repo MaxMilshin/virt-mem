@@ -1,4 +1,6 @@
 import java.io.File
+import kotlin.random.Random
+
 
 const val message = "This page is already in virtual memory"
 
@@ -26,6 +28,21 @@ fun input(fileName: String, pages: MutableList<Int>) : Pair<Int, Int> {
     return Pair(n, m)
 }
 
+fun randomInput(args: Array<String>, pages: MutableList<Int>) : Pair<Int, Int> { // генерация рандомного списка запросов
+    val n = args[1].toInt()
+    val m = args[2].toInt()
+    val countOfRequests = args[3].toInt()
+    val randomListOfPages = List(countOfRequests) { Random.nextInt(1, n + 1)}
+    println("Random sequence of requests:")
+    for (elem in randomListOfPages) {
+        print("$elem ")
+        pages.add(elem - 1)
+    }
+    println()
+    println()
+    return Pair(n, m)
+}
+
 fun output(fifoAns: MutableList<String>, lruAns: MutableList<String>, optAns: MutableList<String>) {
     println("Sequence answers with FIFO algorithm:")
     printlnOfList(fifoAns)
@@ -40,8 +57,13 @@ fun output(fifoAns: MutableList<String>, lruAns: MutableList<String>, optAns: Mu
 
 fun main(args: Array<String>) {
     val pages = mutableListOf<Int>() // последовательность обращений к страницам процесса
-    val res = input(args[0], pages)
+    val res: Pair<Int, Int>
+    if (args[0] == "I_want_random_test")
+        res = randomInput(args, pages)
+    else
+        res = input(args[0], pages)
     val n = res.first // размер адрессного пространства процесса
     val m = res.second // количество кадров в оперативной памяти
     output(fifo(pages, IntArray(m) {n}, n), lru(pages, IntArray(m) {n}, n, m), opt(pages, IntArray(m) {n}, m, n))
 }
+
