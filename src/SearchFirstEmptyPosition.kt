@@ -5,6 +5,6 @@ fun searchFirstPositionWhichMoreThanElem(memory: IntArray, elem: Int, mode: Int)
     if (mode == 0)
         return iterator
     if (iterator == memory.size)
-        return -1
+        return mode
     return memory[iterator]
 }

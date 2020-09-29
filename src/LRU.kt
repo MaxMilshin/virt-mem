@@ -15,12 +15,12 @@ fun oneExecutionLRU(memory: IntArray, lastAppeal: IntArray, currentPage: Int, nu
     if (pos >= memory.size)
         pos = lruReplacementPosition(memory, lastAppeal, m)
     memory[pos] = currentPage
-    return pos.toString()
+    return (pos + 1).toString()
 }
 
 fun lru(pages: MutableList<Int>, memory: IntArray, n: Int, m: Int) : MutableList<String> {
-    var lastAppeal = IntArray(n) {-1}
-    var answer = mutableListOf<String>()
+    val lastAppeal = IntArray(n) {-1}
+    val answer = mutableListOf<String>()
     for (i in 0 until pages.size)
         answer.add(oneExecutionLRU(memory, lastAppeal, pages[i], i, m, n))
     return answer

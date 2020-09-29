@@ -11,12 +11,12 @@ fun oneExecutionFIFO(queueOfPages: Queue<Int>, memory: IntArray, currentPage: In
     }
     queueOfPages.add(pos)
     memory[pos] = currentPage
-    return pos.toString()
+    return (pos + 1).toString()
 }
 
 fun fifo(pages: MutableList<Int>, memory: IntArray, n : Int): MutableList<String> {
-    var answer = mutableListOf<String>()
-    var queueOfPages: Queue<Int> = LinkedList<Int>()
+    val answer = mutableListOf<String>()
+    val queueOfPages: Queue<Int> = LinkedList<Int>()
     for (i in 0 until pages.size)
         answer.add(oneExecutionFIFO(queueOfPages, memory, pages[i], n))
     return answer
