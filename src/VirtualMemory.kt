@@ -1,12 +1,12 @@
 const val message = "Please make use of documentation to understand input format"
 
-fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>> { // фомируем лист arr
-    val arr = mutableListOf<MutableList<Int>>()
+fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>> { // фомируем список списков последующих обращений
+    val followingAppeals = mutableListOf<MutableList<Int>>()
     for (i in 0 until n)
-        arr.add(mutableListOf())
+        followingAppeals.add(mutableListOf())
     for (i in 0 until pages.size)
-        arr[pages[i]].add(i)
-    return arr
+        followingAppeals[pages[i]].add(i)
+    return followingAppeals
 }
 
 fun countOf2ndAns(arr: MutableList<String>) : Int { // возращает количество ответов второго типа
@@ -37,25 +37,25 @@ fun output(fifoAns: MutableList<String>, lruAns: MutableList<String>, optAns: Mu
 
 fun main(args: Array<String>) {
     val pages = mutableListOf<Int>() // последовательность обращений к страницам процесса
-    val spaceSize: Int
-    val memSize: Int
+    val spaceSize: Int // размер адрессного пространства процесса
+    val memSize: Int // размер виртуальной памяти
     try {
         val res = if (args[0] == "random") randomInput(args, pages) else input(args[0], pages)
         spaceSize = res.first
         memSize = res.second
     }
-    catch (e : Exception){
+    catch (e : Exception){ // ловим исключения
         print("$e\n$message")
         return
     }
-    val fifo = ALGO("FIFO", VirtMem(spaceSize, memSize))
-    val lru = ALGO("LRU", VirtMem(spaceSize, memSize))
-    val opt = ALGO("OPT", VirtMem(spaceSize, memSize))
-    opt.arr = preparation(pages, spaceSize)
-    val fifoAns = mutableListOf<String>()
-    val lruAns = mutableListOf<String>()
-    val optAns = mutableListOf<String>()
-    for (i in 0 until pages.size) {
+    val fifo = ALGO("FIFO", VirtMem(spaceSize, memSize)) // структура для алгоритма FIFO
+    val lru = ALGO("LRU", VirtMem(spaceSize, memSize)) // структура для алгоритма LRU
+    val opt = ALGO("OPT", VirtMem(spaceSize, memSize)) // структура для алгоритма OPT
+    opt.followingAppeals = preparation(pages, spaceSize)
+    val fifoAns = mutableListOf<String>() // список ответов на запросы для алгоритма FIFO
+    val lruAns = mutableListOf<String>() // список ответов на запросы для алгоритма LRU
+    val optAns = mutableListOf<String>() // список ответов на запросы для алгоритма OPT
+    for (i in 0 until pages.size) { // обрабатываем каждый запрос каждым из трёх алгоритмов
         fifoAns.add(commonAlgorithm(fifo, pages[i], i))
         lruAns.add(commonAlgorithm(lru, pages[i], i))
         optAns.add(commonAlgorithm(opt, pages[i], i))
