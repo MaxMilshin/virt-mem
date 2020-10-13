@@ -1,5 +1,14 @@
 const val message = "This page is already in virtual memory"
 
+fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>> { // фомируем лист arr
+    val arr = mutableListOf<MutableList<Int>>()
+    for (i in 0 until n)
+        arr.add(mutableListOf())
+    for (i in 0 until pages.size)
+        arr[pages[i]].add(i)
+    return arr
+}
+
 fun countOf2ndAns(arr: MutableList<String>) : Int { // возращает количество ответов второго типа
     var countOfSecondTypeAnswers = 0
     for (elem in arr)
@@ -31,6 +40,18 @@ fun main(args: Array<String>) {
     val res = if (args[0] == "random") randomInput(args, pages) else input(args[0], pages)
     val n = res.first // размер адрессного пространства процесса
     val m = res.second // количество кадров в оперативной памяти
-    output(fifo(pages, IntArray(m) {n}, n), lru(pages, IntArray(m) {n}, n, m), opt(pages, IntArray(m) {n}, m, n))
+    val fifo = ALGO("FIFO", VirtMem(n, m))
+    val lru = ALGO("LRU", VirtMem(n, m))
+    val opt = ALGO("OPT", VirtMem(n, m))
+    opt.arr = preparation(pages, n)
+    val fifoAns = mutableListOf<String>()
+    val lruAns = mutableListOf<String>()
+    val optAns = mutableListOf<String>()
+    for (i in 0 until pages.size) {
+        fifoAns.add(commonAlgorithm(fifo, pages[i], i))
+        lruAns.add(commonAlgorithm(lru, pages[i], i))
+        optAns.add(commonAlgorithm(opt, pages[i], i))
+    }
+    output(fifoAns, lruAns, optAns)
 }
 

@@ -1,4 +1,4 @@
-import org.junit.jupiter.api.Assertions
+/* import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Test
 
 internal class HowManySecondTypeAnswersTest {
@@ -12,4 +12,4 @@ internal class HowManySecondTypeAnswersTest {
         val arr = mutableListOf("1", message, message, message, "1", message)
         Assertions.assertEquals(2, countOf2ndAns(arr))
     }
-}
+} */
