@@ -30,7 +30,7 @@ fun commonAlgorithm(algo: ALGO, currentPage: Int, requestNum: Int) : String {
         algo.followingAppeals[currentPage].removeAt(0) // удаление текущей страницы из последующих запросов
     var pos = pagePlaceInVirtualMemory(algo.memory.memList, currentPage) // позиция, на которой лежит текущая страница
     if (pos != -1) // проверка того что текущая страница лежит в витруальной памяти
-        return "This page is already in virtual memory on ${numeral(pos + 1)} position"
+        return "This page is already in virtual memory on the ${numeral(pos + 1)} position"
     pos = searchFirstEmptyPosition(algo.memory.memList) // первая свободная позиция в виртуальной памяти
     if (pos >= algo.memory.memSize) { // свободных позиций нет ...
         pos = getReplacementPosition(algo) // ищем позицию, которую должна занять текущая страница в соответствии с текущим алгоритмом
