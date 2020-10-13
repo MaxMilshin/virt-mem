@@ -1,4 +1,4 @@
-const val message = "This page is already in virtual memory"
+const val message = "Please make use of documentation to understand input format"
 
 fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>> { // фомируем лист arr
     val arr = mutableListOf<MutableList<Int>>()
@@ -12,7 +12,7 @@ fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>
 fun countOf2ndAns(arr: MutableList<String>) : Int { // возращает количество ответов второго типа
     var countOfSecondTypeAnswers = 0
     for (elem in arr)
-        if (elem != message)
+        if (isItCorrectNumber(elem))
             countOfSecondTypeAnswers++
     return countOfSecondTypeAnswers
 }
@@ -37,13 +37,21 @@ fun output(fifoAns: MutableList<String>, lruAns: MutableList<String>, optAns: Mu
 
 fun main(args: Array<String>) {
     val pages = mutableListOf<Int>() // последовательность обращений к страницам процесса
-    val res = if (args[0] == "random") randomInput(args, pages) else input(args[0], pages)
-    val n = res.first // размер адрессного пространства процесса
-    val m = res.second // количество кадров в оперативной памяти
-    val fifo = ALGO("FIFO", VirtMem(n, m))
-    val lru = ALGO("LRU", VirtMem(n, m))
-    val opt = ALGO("OPT", VirtMem(n, m))
-    opt.arr = preparation(pages, n)
+    val spaceSize: Int
+    val memSize: Int
+    try {
+        val res = if (args[0] == "random") randomInput(args, pages) else input(args[0], pages)
+        spaceSize = res.first
+        memSize = res.second
+    }
+    catch (e : Exception){
+        print("$e\n$message")
+        return
+    }
+    val fifo = ALGO("FIFO", VirtMem(spaceSize, memSize))
+    val lru = ALGO("LRU", VirtMem(spaceSize, memSize))
+    val opt = ALGO("OPT", VirtMem(spaceSize, memSize))
+    opt.arr = preparation(pages, spaceSize)
     val fifoAns = mutableListOf<String>()
     val lruAns = mutableListOf<String>()
     val optAns = mutableListOf<String>()
