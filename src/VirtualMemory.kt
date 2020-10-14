@@ -1,8 +1,8 @@
 const val message = "Please make use of documentation to understand input format"
 
-fun preparation(pages: MutableList<Int>, n : Int) : MutableList<MutableList<Int>> { // фомируем список списков последующих обращений
+fun preparation(pages: MutableList<Int>, spaceSize : Int) : MutableList<MutableList<Int>> { // фомируем список списков последующих обращений
     val followingAppeals = mutableListOf<MutableList<Int>>()
-    for (i in 0 until n)
+    for (i in 0 until spaceSize)
         followingAppeals.add(mutableListOf())
     for (i in 0 until pages.size)
         followingAppeals[pages[i]].add(i)
