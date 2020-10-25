@@ -1,0 +1,30 @@
+Sequence answers with FIFO algorithm:
+1
+2
+This page is already in virtual memory on the 1st position
+1
+2
+This page is already in virtual memory on the 1st position
+1
+
+Sequence answers with LRU algorithm:
+1
+2
+This page is already in virtual memory on the 1st position
+2
+This page is already in virtual memory on the 1st position
+This page is already in virtual memory on the 2nd position
+1
+
+Sequence answers with OPT algorithm:
+1
+2
+This page is already in virtual memory on the 1st position
+2
+This page is already in virtual memory on the 1st position
+This page is already in virtual memory on the 2nd position
+1
+
+Count of second type answers for LRU algorithm: 4
+Count of second type answers for OPT algorithm: 4
+Count of second type answers for FIFO algorithm: 5

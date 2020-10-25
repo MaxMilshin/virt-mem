@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="CommonAlgorithmTest" tests="9" skipped="0" failures="0" errors="0" timestamp="2020-10-14T11:09:38" hostname="maximka-Aspire-ES1-531" time="0.513">
+  <properties/>
+  <testcase name="fifoTest1()" classname="CommonAlgorithmTest" time="0.048"/>
+  <testcase name="fifoTest2()" classname="CommonAlgorithmTest" time="0.003"/>
+  <testcase name="fifoTest3()" classname="CommonAlgorithmTest" time="0.003"/>
+  <testcase name="optTest1()" classname="CommonAlgorithmTest" time="0.367"/>
+  <testcase name="optTest2()" classname="CommonAlgorithmTest" time="0.003"/>
+  <testcase name="optTest3()" classname="CommonAlgorithmTest" time="0.028"/>
+  <testcase name="lruTest1()" classname="CommonAlgorithmTest" time="0.01"/>
+  <testcase name="lruTest2()" classname="CommonAlgorithmTest" time="0.005"/>
+  <testcase name="lruTest3()" classname="CommonAlgorithmTest" time="0.011"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

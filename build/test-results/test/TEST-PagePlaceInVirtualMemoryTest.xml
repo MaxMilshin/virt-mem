@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="PagePlaceInVirtualMemoryTest" tests="3" skipped="0" failures="0" errors="0" timestamp="2020-10-14T11:09:38" hostname="maximka-Aspire-ES1-531" time="0.011">
+  <properties/>
+  <testcase name="simpleTest1()" classname="PagePlaceInVirtualMemoryTest" time="0.001"/>
+  <testcase name="simpleTest2()" classname="PagePlaceInVirtualMemoryTest" time="0.002"/>
+  <testcase name="testWhenVirtualMemoryDidNotContainPage()" classname="PagePlaceInVirtualMemoryTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

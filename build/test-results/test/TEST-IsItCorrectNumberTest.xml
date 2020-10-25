@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="IsItCorrectNumberTest" tests="6" skipped="0" failures="0" errors="0" timestamp="2020-10-14T11:09:38" hostname="maximka-Aspire-ES1-531" time="0.047">
+  <properties/>
+  <testcase name="testWithIncorrectNumber1()" classname="IsItCorrectNumberTest" time="0.012"/>
+  <testcase name="testWithIncorrectNumber2()" classname="IsItCorrectNumberTest" time="0.002"/>
+  <testcase name="testWithIncorrectNumber3()" classname="IsItCorrectNumberTest" time="0.002"/>
+  <testcase name="testWithCorrectNumber1()" classname="IsItCorrectNumberTest" time="0.002"/>
+  <testcase name="testWithCorrectNumber2()" classname="IsItCorrectNumberTest" time="0.003"/>
+  <testcase name="testWithCorrectNumber3()" classname="IsItCorrectNumberTest" time="0.001"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

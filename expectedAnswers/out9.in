@@ -1,0 +1,51 @@
+Sequence answers with FIFO algorithm:
+1
+2
+This page is already in virtual memory on the 2nd position
+3
+1
+2
+3
+1
+This page is already in virtual memory on the 1st position
+2
+3
+This page is already in virtual memory on the 2nd position
+This page is already in virtual memory on the 1st position
+1
+
+Sequence answers with LRU algorithm:
+1
+2
+This page is already in virtual memory on the 2nd position
+3
+1
+2
+3
+1
+This page is already in virtual memory on the 1st position
+2
+3
+This page is already in virtual memory on the 2nd position
+This page is already in virtual memory on the 1st position
+3
+
+Sequence answers with OPT algorithm:
+1
+2
+This page is already in virtual memory on the 2nd position
+3
+2
+3
+3
+This page is already in virtual memory on the 1st position
+This page is already in virtual memory on the 1st position
+This page is already in virtual memory on the 2nd position
+3
+This page is already in virtual memory on the 2nd position
+This page is already in virtual memory on the 1st position
+1
+
+Count of second type answers for OPT algorithm: 8
+Count of second type answers for FIFO algorithm: 10
+Count of second type answers for LRU algorithm: 10
